@@ -1,0 +1,46 @@
+class Solution:
+    
+    def ehPalindromo(self, x: int):
+    #pesquisando obtive a informação de que para o python o numero 010 por exemplo e tratado como 10.
+    #então esta logica de palindromos não se aplica a ele "corretamente" a não ser que seja 
+    #com a utilização de string  .
+    
+       #armazena staticamente o valor original de x.
+       original = x
+       
+       
+       
+       #inicaliza a variavel do numero de tras para frente zerada.
+       invertido = 0
+       
+       while x > 0:
+           
+            #dividindo por dez com o " % " ele armazena o valor do resto da divisão exemplo 212 % 10 = 2.
+            ultimo = x % 10
+            
+            
+            #aqui ele começa pegando o ultimo numero e depois "somando" na verdade multiplicando
+            #inversamente proporcional a divisão "%" entao 212 resto = 2 invertido = 2 *10 + o digito
+            #anterior no caso 1 e assim vai até zerar o x .
+            invertido = invertido  * 10 + ultimo
+            
+            #vai removendo o resto que ja foi utilizado anteriormente pois o "//" , "ignora" o resto .
+            # ou seja 212  // 10 = 21
+            x = x // 10
+            
+       if original == invertido:
+          
+          return True
+          
+       return False 
+      
+teste = Solution()
+x = int(input("digite um valor: "))
+if teste.ehPalindromo(x): 
+    resposta = "sim" 
+else: resposta = "não"
+
+print(f"numero: {x} \n é palindromo ? {resposta}")
+
+
+        
